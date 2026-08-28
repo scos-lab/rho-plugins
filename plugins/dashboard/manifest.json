@@ -1,0 +1,8 @@
+{
+  "id": "dashboard",
+  "name": "Dashboard",
+  "version": "0.1.0",
+  "badge": "Beta",
+  "description": "Feed JSON/CSV time-series files (one row per day), get self-contained dashboard documents back. Beta — the input shape is fixed for now.",
+  "minAppVersion": "1.4.8"
+}

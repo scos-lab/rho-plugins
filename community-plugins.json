@@ -12,6 +12,18 @@
         "manifest": "https://raw.githubusercontent.com/scos-lab/rho-plugins/main/template/manifest.json",
         "main": "https://raw.githubusercontent.com/scos-lab/rho-plugins/main/template/main.js"
       }
+    },
+    {
+      "id": "dashboard",
+      "name": "Dashboard",
+      "version": "0.1.0",
+      "description": "Feed JSON/CSV time-series files (one row per day), get self-contained dashboard documents back. Beta — the input shape is fixed for now.",
+      "author": "rho-md",
+      "repo": "https://github.com/scos-lab/rho-plugins",
+      "download": {
+        "manifest": "https://raw.githubusercontent.com/scos-lab/rho-plugins/main/plugins/dashboard/manifest.json",
+        "main": "https://raw.githubusercontent.com/scos-lab/rho-plugins/main/plugins/dashboard/main.js"
+      }
     }
   ]
 }
