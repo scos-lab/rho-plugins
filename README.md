@@ -2,6 +2,10 @@
 
 # Rho MD community plugins
 
+**Licensing**: everything in this repo — the starter template, the type
+contract, and official plugins like Dashboard — is MIT. The Rho MD app core is
+closed-source; its plugin API is a public, documented contract.
+
 Plugins for [Rho MD](https://rho.md), built by people who like to tinker — most of them written with an AI assistant, and that's the intended way.
 
 ## Use a plugin

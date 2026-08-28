@@ -1,4 +1,3 @@
-"use strict";
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
@@ -17,14 +16,14 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/plugins/dashboard/index.ts
+// plugins/dashboard/src/index.ts
 var index_exports = {};
 __export(index_exports, {
   default: () => index_default
 });
 module.exports = __toCommonJS(index_exports);
 
-// src/plugins/dashboard/model.ts
+// plugins/dashboard/src/model.ts
 var GENERATOR_MARKER = "rho-dashboard/v1";
 var DEFAULT_CONFIG = {
   metrics: [],
@@ -45,7 +44,7 @@ async function resolveFolders(ctx) {
   return { dataFolder, outputFolder };
 }
 
-// src/plugins/dashboard/ingest.ts
+// plugins/dashboard/src/ingest.ts
 var DATA_EXTS = [".json", ".csv"];
 function isDataFile(name) {
   const lower = name.toLowerCase();
@@ -116,7 +115,7 @@ function parseCsv(raw) {
   return out;
 }
 
-// src/plugins/dashboard/bake.ts
+// plugins/dashboard/src/bake.ts
 var DAY_MS = 864e5;
 var iso = (t) => new Date(t).toISOString().slice(0, 10);
 var parse = (d) => Date.parse(`${d}T00:00:00Z`);
@@ -366,7 +365,7 @@ function niceCeil(v) {
   return 10 * mag;
 }
 
-// src/plugins/dashboard/engine.ts
+// plugins/dashboard/src/engine.ts
 function todayIso() {
   const d = /* @__PURE__ */ new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
@@ -502,7 +501,7 @@ function createEngine(ctx) {
   };
 }
 
-// src/plugins/dashboard/sectionView.ts
+// plugins/dashboard/src/sectionView.ts
 function mountDashboardSection(container, host, engine, actions) {
   const root = document.createElement("div");
   root.style.cssText = "display:flex;flex-direction:column;gap:6px;padding:6px 10px;font-size:12px;";
@@ -575,7 +574,7 @@ function mountDashboardSection(container, host, engine, actions) {
   };
 }
 
-// src/plugins/dashboard/settingsView.ts
+// plugins/dashboard/src/settingsView.ts
 function mountDashboardSettings(container, _host, ctx, onChanged) {
   const root = document.createElement("div");
   root.style.cssText = "display:flex;flex-direction:column;gap:14px;font-size:13px;max-width:560px;";
@@ -650,7 +649,7 @@ function mountDashboardSettings(container, _host, ctx, onChanged) {
   return () => root.remove();
 }
 
-// src/plugins/dashboard/index.ts
+// plugins/dashboard/src/index.ts
 var DASH_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>`;
 var dashboardPlugin = {
   id: "rho.dashboard",
