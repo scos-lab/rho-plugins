@@ -15,12 +15,25 @@ module.exports = {
       }),
     );
 
-    // A sidebar section in the Explorer stack.
+    // Your own Activity Bar icon — the convention: a plugin owns its view
+    // (its own icon in the far-left column) instead of crowding the Explorer
+    // stack. Reserve Explorer sections for ambient, glance-along content.
+    ctx.subscriptions.push(
+      ctx.views.registerView({
+        id: 'hello-panel.view',
+        title: 'Hello Panel',
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>',
+        order: 90,
+      }),
+    );
+
+    // A section stacked under your view.
     ctx.subscriptions.push(
       ctx.sidebar.registerSection({
         id: 'hello-panel.section',
         title: 'Hello Panel',
-        order: 130,
+        view: 'hello-panel.view',
+        order: 10,
         mount(container, host) {
           const root = document.createElement('div');
           root.style.cssText = 'padding:8px 12px;font-size:12px;display:flex;flex-direction:column;gap:8px;';
