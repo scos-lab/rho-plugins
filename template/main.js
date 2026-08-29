@@ -54,7 +54,7 @@ module.exports = {
           learn.title = 'Opens the plugin-building guide. Read it yourself, or hand the whole page to an AI and let it build your plugin.';
           learn.style.cssText = 'border:1px solid var(--link-color);color:var(--link-color);background:transparent;border-radius:6px;padding:4px 10px;cursor:pointer;';
           learn.addEventListener('click', () => {
-            ctx.commands.execute('rho.discover.openUrl', 'https://rho.md/p/build-your-own-plugin')
+            ctx.commands.execute('rho.discover.openUrl', { url: 'https://rho.md/p/build-your-own-plugin' })
               .catch(() => ctx.notifications.notify({ title: 'Guide', body: 'rho.md/p/build-your-own-plugin' }));
           });
           const btn = document.createElement('button');

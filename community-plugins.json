@@ -4,7 +4,7 @@
     {
       "id": "hello-panel",
       "name": "Hello Panel",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "description": "A demo that teaches you how to build your own plugin — with a link to the full guide (read it, or hand it to your AI).",
       "author": "rho-md",
       "repo": "https://github.com/scos-lab/rho-plugins",
