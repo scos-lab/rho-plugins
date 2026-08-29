@@ -47,8 +47,16 @@ module.exports = {
           const root = document.createElement('div');
           root.style.cssText = 'padding:8px 12px;font-size:12px;display:flex;flex-direction:column;gap:8px;';
           const p = document.createElement('div');
-          p.textContent = 'This section comes from a local plugin. Edit main.js and hit Reload.';
+          p.textContent = 'This is a demo that teaches you how to build your own plugin. Edit main.js, hit Reload, and it changes live.';
           p.style.color = host.theme.textColor;
+          const learn = document.createElement('button');
+          learn.textContent = 'Learn how — full guide';
+          learn.title = 'Opens the plugin-building guide. Read it yourself, or hand the whole page to an AI and let it build your plugin.';
+          learn.style.cssText = 'border:1px solid var(--link-color);color:var(--link-color);background:transparent;border-radius:6px;padding:4px 10px;cursor:pointer;';
+          learn.addEventListener('click', () => {
+            ctx.commands.execute('rho.discover.openUrl', 'https://rho.md/p/build-your-own-plugin')
+              .catch(() => ctx.notifications.notify({ title: 'Guide', body: 'rho.md/p/build-your-own-plugin' }));
+          });
           const btn = document.createElement('button');
           btn.textContent = 'Say hello';
           btn.style.cssText = 'border:1px solid var(--border-color);background:transparent;color:inherit;border-radius:6px;padding:4px 10px;cursor:pointer;';
@@ -57,6 +65,7 @@ module.exports = {
           statusEl.style.cssText = 'min-height:18px;font-weight:600;';
           statusEl.textContent = clicks ? `Hello! 👋 (× ${clicks})` : '';
           root.appendChild(p);
+          root.appendChild(learn);
           root.appendChild(btn);
           root.appendChild(statusEl);
           container.appendChild(root);

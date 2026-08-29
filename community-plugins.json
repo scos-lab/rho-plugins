@@ -4,8 +4,8 @@
     {
       "id": "hello-panel",
       "name": "Hello Panel",
-      "version": "0.1.1",
-      "description": "Starter plugin: a sidebar section, a command, and a notification. Copy it, describe what you want to your AI, iterate.",
+      "version": "0.1.2",
+      "description": "A demo that teaches you how to build your own plugin — with a link to the full guide (read it, or hand it to your AI).",
       "author": "rho-md",
       "repo": "https://github.com/scos-lab/rho-plugins",
       "download": {
