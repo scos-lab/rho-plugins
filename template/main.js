@@ -4,12 +4,21 @@
 
 module.exports = {
   activate(ctx) {
+    // Shared state: the command updates it, the section shows it — visible
+    // feedback IN the panel (an OS notification alone is easy to miss).
+    let clicks = 0;
+    let statusEl = null;
+
     // A command: runs from the palette (Ctrl+Shift+P) and the agent surface.
     ctx.subscriptions.push(
       ctx.commands.register({
         id: 'hello-panel.greet',
         title: 'Hello Panel: Greet',
         run() {
+          clicks++;
+          if (statusEl) statusEl.textContent = `Hello! 👋 (× ${clicks})`;
+          // Also fire an OS notification — may be muted by the system; the
+          // in-panel line above is the feedback you can always see.
           return ctx.notifications.notify({ title: 'Hello from your plugin 👋' });
         },
       }),
@@ -44,8 +53,12 @@ module.exports = {
           btn.textContent = 'Say hello';
           btn.style.cssText = 'border:1px solid var(--border-color);background:transparent;color:inherit;border-radius:6px;padding:4px 10px;cursor:pointer;';
           btn.addEventListener('click', () => ctx.commands.execute('hello-panel.greet'));
+          statusEl = document.createElement('div');
+          statusEl.style.cssText = 'min-height:18px;font-weight:600;';
+          statusEl.textContent = clicks ? `Hello! 👋 (× ${clicks})` : '';
           root.appendChild(p);
           root.appendChild(btn);
+          root.appendChild(statusEl);
           container.appendChild(root);
           return () => root.remove();
         },
